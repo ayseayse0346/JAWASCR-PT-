@@ -43,3 +43,23 @@ console.log(isimler.length);
 let karışıkDizi = [1,"enes",5.7,true,null,undefined]
 console.log(karışıkDizi[3]);
 
+// ?NOT DİZİLERİN ŞU ŞEKİLDE DE TANIMLANABİLİR.
+
+let dizi2 = new Array(); //çok kullanılmayan tanımlama
+
+// boş dizi tanımlanması**
+let dizi1 = []
+
+// değerler ataya biliriz.
+
+dizi1[0] = "enes"
+dizi1[1] = "ali"
+dizi2[0] = "enes"
+dizi2[1] = "ali"
+
+console.log(dizi1,dizi2);
+
+// ?not typeof 
+
+// diziler aslında bir object veri tipidir.
+console.log(typeof dizi1);
