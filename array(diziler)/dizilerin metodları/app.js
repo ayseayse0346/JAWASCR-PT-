@@ -4,7 +4,7 @@ push  : dizinin sonuna eleman ekler.,ayrıca dizinin uzunluğunu döner.
 
 unshift :dizinin başına elemean ekler,eleman sayısını geriye döner.
 
-pop: dizinin sonundan eleman siler, eleman sayısını döner.
+pop: dizinin sonundan eleman siler, eleman sayısını döner.silinen elemanı döner
 
 shift:dizinin başından eleman siler,eleman sayısını döner.
 
@@ -37,86 +37,87 @@ includes :verilen elemanı içeriyor mu ona bakar.
 
 // !push
 let arabalarım = ["BMW", "Mercedes", "Audi", "Toyota", "Honda"];
+let arabalar2 = ["golf","tofaş"]
 let diziuzunluk = arabalarım.push("opel")
-console.log(arabalarım);
 console.log(diziuzunluk);
-console.log(arabalrım.lenght);
-console.log(diziuzunluk.lenght);
+console.log(arabalarım);
+console.log(arabalarım.length);
 
-// Bir dizi oluşturalım
-let arabalar = ["BMW", "Mercedes", "Audi", "Toyota", "Honda"];
-// splice yöntemiyle diziden öğe silme ve yerine yeni öğeler ekleme
-let silinenArabalar = arabalar.splice(1, 2, "Tesla", "Ford"); // 1. indexten başlayarak 2 öğeyi siler ve yerine "Tesla" ve "Ford" ekler
-console.log("Silinen arabalar:", silinenArabalar); // Çıktı: ["Mercedes", "Audi"]
-console.log("Yeni arabalar dizisi:", arabalar); // Çıktı: ["BMW", "Tesla", "Ford", "Toyota", "Honda"]
-// splice yöntemiyle belirli bir konumdan başlayarak sonuna kadar tüm öğeleri silme
-let silinenHondalar = arabalar.splice(3); // 3. indexten başlayarak sonuna kadar tüm öğeleri siler
-console.log("Silinen arabalar (sondan itibaren):", silinenHondalar); // Çıktı: ["Toyota", "Honda"]
-console.log("Yeni arabalar dizisi (sondan itibaren):", arabalar); // Çıktı: ["BMW", "Tesla", "Ford"]
+// !unshift
+arabalarım.unshift("hundai")
+console.log(arabalarım);
 
-// Bir dizi oluşturalım
-let meyvelerr = ["Elma", "Armut", "Muz", "Portakal", "Üzüm"];
-// join yöntemiyle dizi öğelerini birleştirme
-let birlesikMeyveler = meyvelerr.join(", "); // Dizi öğelerini virgülle ayırarak birleştirir
-console.log(birlesikMeyveler); // Çıktı: "Elma, Armut, Muz, Portakal, Üzüm"
 
-// İlk dizi
-let dizi1 = [1, 2, 3];
-// İkinci dizi
-let dizi2 = [4, 5, 6];
-// Üçüncü dizi
-let dizi3 = [7, 8, 9];
-// concat yöntemiyle dizileri birleştirme
-let birlesikDizi = dizi1.concat(dizi2, dizi3);
-console.log(birlesikDizi); // Çıktı: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// !pop
+ 
 
-//slice yöntemi, bir diziden belirli bir aralıktaki öğeleri seçmek için kullanılır. İlk parametre, kesmeye başlanacak dizin konumunu belirtir, ikinci parametre ise kesmenin sonlanacağı dizin konumunu belirtir (bu indis dahil değildir). Bu örnekte, 1. indexten başlayarak 4. indexe kadar olan öğeleri (4. index dahil değil) seçer.
+let silineneleman = arabalarım.pop()//sondaki elemanı siler
+console.log(silineneleman); //silinen elemanı bize döner
+console.log(arabalarım);
+// !shift 
 
-// Bir dizi oluşturalım
-let meyveler = ["Elma", "Armut", "Muz", "Portakal", "Üzüm"];
-// slice yöntemiyle belirli bir aralıktaki öğeleri seçme
-let dilimlenmisMeyveler = meyveler.slice(1, 4); // 1. indexten başlayarak 4. indexe kadar olan öğeleri seçer (4. index dahil değil)
-console.log(dilimlenmisMeyveler); // Çıktı: ["Armut", "Muz", "Portakal"]
+let baştansilinen = arabalarım.shift()
+console.log(baştansilinen);
+console.log(arabalarım);
 
-//reverse yöntemi, bir dizinin öğelerini tersine çevirir. İlk örnekte olduğu gibi, bir dizinin öğelerini tersine çevirir. İkinci örnekte, bir metnin karakterlerini tersine çevirmek için dizeyi ayrıştırıp (split), tersine çevirip (reverse) ardından birleştirir (join). Üçüncü örnekte, karmaşık bir diziyi tersine çevirir.
+// ! splice 
+// hem siler hem ekler. index kullanarak
 
-let metinn = "Merhaba";
-let tersMetin = metinn.split("").reverse().join("");
-console.log(tersMetin); // Çıktı: "abahreM"
+ arabalarım.splice(1,3,"cady") //diziden herhangi bir eleman simeden bu eleamnı ekle demek sıfırlar başı ve silme demek sıfır
+console.log(arabalarım);
+arabalarım.splice(1,0,"honda")
+console.log(arabalarım);
 
-//! Split yöntemi
-// split yöntemi, bir dizeyi belirli bir ayraçla böler ve alt dize parçalarını bir diziye yerleştirir. Örneğin, bir boşluk karakteri veya virgül gibi belirli bir karaktere göre dizeyi bölebilirsiniz. Bu örneklerde, split yöntemi kullanılarak metinler parçalanmış ve belirli ayraçlara göre diziye dönüştürülmüştür.
-let veri = "ali,veli,deli";
-let liste = veri.split(","); // Virgülle ayrılmış veriyi parçalar
-console.log(liste); // Çıktı: ["ali", "veli", "deli"]
+arabalarım.splice(1,2)
+console.log(arabalarım); //birinci indexten başla 2 ye kadar sil.
+arabalarım.splice(2,2,"hundai") //2 den başla 2 ye kdar sil ve bunların bulunduğu yere de hundai ekle.
 
-let metinl = "Merhaba";
-let harfler = metinl.split(""); // Her karakteri ayrı bir dizi öğesi olarak parçalar
-console.log(harfler); // Çıktı: ["M", "e", "r", "h", "a", "b", "a"]
 
-//!indexof
-// indexOf yöntemi, bir dize içinde belirli bir alt dizenin ilk bulunduğu dizin konumunu döndürür. Eğer alt dize bulunamazsa, -1 değeri döndürülür. İşte birkaç örnek
-let metin = "Merhaba, dünya!";
-let pozisyon = metin.indexOf("dünya");
-console.log(pozisyon); // Çıktı: 9 (dünya alt dizesi metin içinde 9. pozisyonda bulunuyor)
-let metin = "Merhaba, dünya!";
-let pozisyon = metin.indexOf("xyz");
-console.log(pozisyon); // Çıktı: -1 (xyz alt dizesi metin içinde bulunamadı)
-let metin = "Merhaba, dünya!";
-let pozisyon = metin.indexOf("a", 3); // 3. pozisyondan itibaren arama yapar
-console.log(pozisyon); // Çıktı: 5 (a alt dizesi 3. pozisyondan sonra 5. pozisyonda bulunuyor)
-let metin = "Merhaba, dünya! Merhaba, evren!";
-let pozisyon = metin.indexOf("Merhaba");
-console.log(pozisyon); // Çıktı: 0 (ilk "Merhaba" alt dizesi metin içinde 0. pozisyonda bulunuyor)
+// ! tostring()
 
-//!İncludes
-// Bu örneklerde görüldüğü gibi, includes yöntemi belirli bir alt dizenin ana dizide bulunup bulunmadığını kontrol eder. Eğer alt dize bulunursa true, bulunamazsa false döndürür. Ayrıca, ikinci bir parametre belirterek aramanın belirli bir konumdan başlayacağını belirtebilirsiniz.
-let metin = "Merhaba, dünya!";
-let sonuc = metin.includes("dünya");
-console.log(sonuc); // Çıktı: true
-let metin = "Merhaba, dünya!";
-let sonuc = metin.includes("xyz");
-console.log(sonuc); // Çıktı: false
-let metin = "Merhaba, dünya!";
-let sonuc = metin.includes("a", 3); // 3. pozisyondan itibaren arama yapar
-console.log(sonuc); // Çıktı: true
+console.log(typeof arabalarım);
+let stringarablar = arabalarım.toString()
+console.log(typeof stringarablar);
+
+// !join 
+
+
+let strarablar = arabalarım.join("-")
+console.log(strarablar);
+console.log(typeof strarablar);
+
+// !concat 
+
+ let birleştirilmişarabalar = arabalarım.concat(arabalar2)
+console.log(birleştirilmişarabalar);
+
+// ! slice 
+
+ let ayrıdzi = birleştirilmişarabalar.slice(2)
+console.log(ayrıdzi);
+
+// ! lenght
+console.log(birleştirilmişarabalar.length);
+
+// ! reverse
+console.log(birleştirilmişarabalar.reverse());
+
+// !split 
+// ararya çevirdi .string bir değeri belirli bir seperate yani ayrırıcı kulananrak böler.
+let isimler = "ali,veli,enes"
+let diziisim = isimler.split(",")
+console.log(diziisim);
+
+// !indexof 
+
+let indexof = birleştirilmişarabalar.indexOf("BMW")
+console.log(indexof);
+
+let indexx = birleştirilmişarabalar.indexOf("keyew")
+console.log(indexx);
+
+// !inculudes
+// boolen döner 
+let sonuç = birleştirilmişarabalar.includes("porshe")
+
+console.log(sonuç);
